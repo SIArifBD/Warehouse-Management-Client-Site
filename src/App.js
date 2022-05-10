@@ -28,7 +28,7 @@ function App() {
         <Route path='/manageInventory' element={<PrivateRoute>
           <ManageInventory />
         </PrivateRoute>} ></Route>
-        <Route path='/inventory' element={<PrivateRoute>
+        <Route path='/inventory/:productId' element={<PrivateRoute>
           <Inventory />
         </PrivateRoute>}></Route>
         <Route path='/myItem' element={<PrivateRoute>

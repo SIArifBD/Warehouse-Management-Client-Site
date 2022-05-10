@@ -26,7 +26,7 @@ const ManageInventory = () => {
     ]
     return (
         <div className='container'>
-            <h2 className='mt-3'>Manage Inventory Items</h2>
+            <h2 className='mt-5'>Manage Inventory Items</h2>
             <DataTable columns={columns} data={products} />
             <Link to='/uploadPd'>
                 <button className='btn btn-primary mx-auto d-block my-3 text-decoration-none'>Add New Item</button>

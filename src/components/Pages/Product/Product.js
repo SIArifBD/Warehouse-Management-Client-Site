@@ -18,10 +18,10 @@ const Product = ({ product }) => {
                     <p className='card-text'>Price: ${price}</p>
                     <p className="card-text">Quantity: {quantity}</p>
                     <p className='card-text'>Supplier: {supplier}</p>
-                    {/* <button onClick={() => navigateToItemManage(_id)} className='btn btn-primary'>Stock Update</button> */}
-                    <Link to='/inventory'>
+                    <button onClick={() => navigateToItemManage(_id)} className='btn btn-primary'>Stock Update</button>
+                    {/* <Link to={`/inventory/${productId}`}>
                         <button onClick={() => navigateToItemManage(_id)} className='btn btn-primary'>Stock Update</button>
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
         </div>
