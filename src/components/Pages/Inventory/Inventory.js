@@ -37,7 +37,6 @@ const Inventory = () => {
         event.preventDefault();
 
         const qty = event.target.qty.value;
-        // console.log(qty);
         if (qty !== undefined && qty > 0) {
             // Back-end api call
             product.quantity = `${parseInt(product.quantity) + parseInt(qty)}`;
