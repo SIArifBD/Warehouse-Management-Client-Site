@@ -16,7 +16,6 @@ const Inventory = () => {
     }, [productId]);
 
     const handleDelivered = () => {
-        // const deliverQty = parseInt(product.quantity) - 1;
         product.quantity = `${parseInt(product.quantity) - 1}`;
         console.log(product.quantity);
         setProduct({ ...product, ...product.quantity });
