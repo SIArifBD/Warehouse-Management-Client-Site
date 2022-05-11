@@ -6,7 +6,7 @@ const Inventory = () => {
     const [product, setProduct] = useState({});
 
     useEffect(() => {
-        if (productId != undefined) {
+        if (productId !== undefined) {
             const url = `http://localhost:5000/product/${productId}`;
             fetch(url).then(res => res.json()).then(data => setProduct(data));
         }
@@ -51,6 +51,7 @@ const Inventory = () => {
                 .then(res => console.log(res.json()))
                 .then(data => {
                     console.log('Successfully send', data);
+                    event.target.reset();
                 })
         }
     }
