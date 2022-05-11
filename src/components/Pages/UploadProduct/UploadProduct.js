@@ -3,7 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../Firebase/firebase.init';
 
 const UploadProduct = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
 
     const handleUpload = event => {
         event.preventDefault();
@@ -15,7 +15,7 @@ const UploadProduct = () => {
         const quantity = event.target.qty.value;
         const supplier = event.target.supplier.value;
 
-        const url = `http://localhost:5000/product`;
+        const url = `https://intense-depths-80254.herokuapp.com/product`;
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({

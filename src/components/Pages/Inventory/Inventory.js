@@ -7,7 +7,7 @@ const Inventory = () => {
 
     useEffect(() => {
         if (productId !== undefined) {
-            const url = `http://localhost:5000/product/${productId}`;
+            const url = `https://intense-depths-80254.herokuapp.com/product/${productId}`;
             fetch(url).then(res => res.json()).then(data => setProduct(data));
         }
     }, [productId]);
@@ -16,7 +16,7 @@ const Inventory = () => {
         product.quantity = `${parseInt(product.quantity) - 1}`;
         console.log(product.quantity);
         setProduct({ ...product, ...product.quantity });
-        const url = `http://localhost:5000/product/${productId}`;
+        const url = `https://intense-depths-80254.herokuapp.com/product/${productId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -39,7 +39,7 @@ const Inventory = () => {
             product.quantity = `${parseInt(product.quantity) + parseInt(qty)}`;
             console.log(product.quantity);
             setProduct({ ...product, ...product.quantity });
-            const url = `http://localhost:5000/product/${productId}`;
+            const url = `https://intense-depths-80254.herokuapp.com/product/${productId}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

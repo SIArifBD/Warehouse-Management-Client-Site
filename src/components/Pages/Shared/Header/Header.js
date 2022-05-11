@@ -7,7 +7,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 
 const Header = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" sticky='top' bg="primary" variant="dark">
