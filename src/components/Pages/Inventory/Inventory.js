@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 const Inventory = () => {
     const { productId } = useParams();
     // const [product, setProduct] = useProductDetails(productId);
-    // console.log(product);
     const [product, setProduct] = useState({});
 
     useEffect(() => {
