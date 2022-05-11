@@ -15,8 +15,6 @@ const UploadProduct = () => {
         const quantity = event.target.qty.value;
         const supplier = event.target.supplier.value;
 
-        // console.log(name, url, description, price, quantity, supplier);
-
         const url = `http://localhost:5000/product`;
         fetch(url, {
             method: 'POST',
