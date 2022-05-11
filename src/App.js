@@ -20,6 +20,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/blog' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/uploadPd' element={<PrivateRoute>
@@ -33,9 +34,6 @@ function App() {
         </PrivateRoute>}></Route>
         <Route path='/myItem' element={<PrivateRoute>
           <MyItems />
-        </PrivateRoute>}></Route>
-        <Route path='/blog' element={<PrivateRoute>
-          <Blogs />
         </PrivateRoute>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>

@@ -6,7 +6,7 @@ const Product = ({ product }) => {
     const navigate = useNavigate();
 
     const navigateToItemManage = id => {
-        navigate(`/product/${id}`);
+        navigate(`/inventory/${id}`);
     }
     return (
         <div className='g-5 col-sm-12 col-md-6 col-lg-4'>

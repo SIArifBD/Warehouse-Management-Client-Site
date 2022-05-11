@@ -11,7 +11,7 @@ const Products = () => {
     }, []);
     return (
         <div className='container'>
-            <h1 className='text-primary text-center mt-5'>Smart Gadgets</h1>
+            <h1 className='text-primary text-center mt-5'>Smart Gadgets Inventory</h1>
             <div className="row">
                 {
                     products.length > 5 ? products.slice(0, 6).map(product => <Product key={product._id} product={product}></Product>) :

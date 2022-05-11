@@ -19,15 +19,15 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="home">Home</Nav.Link>
-                            <Nav.Link href="home#product">Products</Nav.Link>
+                            <Nav.Link as={Link} to="blog">Blogs</Nav.Link>
+                            {/* <Nav.Link href="home#product">Products</Nav.Link> */}
                         </Nav>
                         <Nav>
                             {
                                 user && <>
-                                    <Nav.Link as={Link} to="blog">Blogs</Nav.Link>
-                                    <Nav.Link as={Link} to="uploadPd">Upload Product</Nav.Link>
-                                    <Nav.Link as={Link} to="inventory">Inventory</Nav.Link>
-                                    <Nav.Link as={Link} to="manageInventory">Manage Inventory</Nav.Link>
+                                    <Nav.Link as={Link} to="manageInventory">Manage Items</Nav.Link>
+                                    <Nav.Link as={Link} to="uploadPd">Add Item</Nav.Link>
+                                    {/* <Nav.Link as={Link} to="inventory">Inventory</Nav.Link> */}
                                     <Nav.Link as={Link} to="myItem">My Items</Nav.Link>
                                 </>
                             }
@@ -43,7 +43,7 @@ const Header = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-        </div>
+        </div >
     );
 };
 

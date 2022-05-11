@@ -5,6 +5,21 @@ import useProducts from '../../hooks/useProducts';
 
 const ManageInventory = () => {
     const [products, setProducts] = useProducts();
+    const handleDeleteItem = id => {
+        const confirmDelete = window.confirm('Are you sure? You want to delete it.');
+        if (confirmDelete) {
+            const url = `http://localhost:5000/product/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const remain = products.filter(product => product._id !== id);
+                    setProducts(remain)
+                });
+        }
+    }
 
     const columns = [
         {
@@ -23,10 +38,14 @@ const ManageInventory = () => {
             name: 'Price',
             selector: row => row.price,
         },
+        {
+            name: 'Action',
+            selector: row => (<button className='btn btn-danger' onClick={() => handleDeleteItem(row._id)}>Delete</button>)
+        },
     ]
     return (
         <div className='container'>
-            <h2 className='mt-5'>Manage Inventory Items</h2>
+            <h2 className='mt-5'>Manage Inventories</h2>
             <DataTable columns={columns} data={products} />
             <Link to='/uploadPd'>
                 <button className='btn btn-primary mx-auto d-block my-3 text-decoration-none'>Add New Item</button>
