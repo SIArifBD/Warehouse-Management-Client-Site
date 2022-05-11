@@ -4,30 +4,34 @@ import useProductDetails from '../../hooks/useProductDetails';
 
 const Inventory = () => {
     const { productId } = useParams();
-    const [product, setProduct] = useProductDetails(productId);
-    // const [product, setProduct] = useState({});
+    // const [product, setProduct] = useProductDetails(productId);
+    // console.log(product);
+    const [product, setProduct] = useState({});
 
-    // useEffect(() => {
-    //     if (productId != undefined) {
-    //         const url = `http://localhost:5000/product/${productId}`;
-    //         fetch(url).then(res => res.json()).then(data => setProduct(data));
-    //     }
-    // }, [productId]);
+    useEffect(() => {
+        if (productId != undefined) {
+            const url = `http://localhost:5000/product/${productId}`;
+            fetch(url).then(res => res.json()).then(data => setProduct(data));
+        }
+    }, [productId]);
 
     const handleDelivered = () => {
-        const deliverQty = product.quantity - 1;
+        // const deliverQty = parseInt(product.quantity) - 1;
+        product.quantity = `${parseInt(product.quantity) - 1}`;
+        console.log(product.quantity);
+        setProduct({ ...product, ...product.quantity });
         const url = `http://localhost:5000/product/${productId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
-                'content-type': 'application/json'
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
             },
-            body: JSON.stringify(deliverQty)
+            body: JSON.stringify(product)
         })
-            .then(res => res.json())
+            .then(res => console.log(res.json()))
             .then(data => {
-                console.log('Success', data);
-                alert('Successfully Updated');
+                console.log('Successfully send', data);
             })
     }
     // const onRestockSubmit = values => {
@@ -43,9 +47,24 @@ const Inventory = () => {
 
         const qty = event.target.qty.value;
         // console.log(qty);
-        if (qty != undefined && qty > 0) {
-            product.quantity = product.quantity + qty;
-            setProduct(product);
+        if (qty !== undefined && qty > 0) {
+            // Back-end api call
+            product.quantity = `${parseInt(product.quantity) + parseInt(qty)}`;
+            console.log(product.quantity);
+            setProduct({ ...product, ...product.quantity });
+            const url = `http://localhost:5000/product/${productId}`;
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(product)
+            })
+                .then(res => console.log(res.json()))
+                .then(data => {
+                    console.log('Successfully send', data);
+                })
         }
     }
     return (
@@ -68,7 +87,8 @@ const Inventory = () => {
                     <div className='card'>
                         <img src={product.imgUrl} alt="" />
                         <div className='card-body'>
-                            <h5 className='card-title'>{product.name}</h5>
+                            <h5 className='card-title'>Name: {product.name}</h5>
+                            <h5 className='card-subtitle mb-2 text-muted'>ID: {product._id}</h5>
                             <h6 className='card-subtitle mb-2 text-muted'>Description: {product.description}</h6>
                             <h6 className='card-subtitle mb-2 text-muted'>Price: {product.price}</h6>
                             <h6 className='card-subtitle mb-2 text-muted'>Quantity: {product.quantity}</h6>
