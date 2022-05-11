@@ -33,14 +33,6 @@ const Inventory = () => {
                 console.log('Successfully send', data);
             })
     }
-    // const onRestockSubmit = values => {
-    //     // const qty = values.target.qty.value;
-    //     // console.log(qty)
-    //     // if (qty != undefined && qty > 0) {
-    //     //     product.quantity = product.quantity + qty
-    //     //     setProduct(product)
-    //     // }
-    // }
     const onRestockSubmit = event => {
         event.preventDefault();
 
