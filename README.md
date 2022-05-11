@@ -3,8 +3,11 @@
 ## Short Description: 
 This website name is Smart Shop which is based on warehouse management application. Using this application you can update stock quantity, you can show can show how much item quantity remaining after delivered, you can upload new product, delete item.   
 
-### Live Website link: 
+### Live client site link: 
+https://smart-shop-8e8bb.web.app/
 
+### Live server site link: 
+https://intense-depths-80254.herokuapp.com/
 
 ### Features and functionality:
 1. Simple navbar
